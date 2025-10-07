@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: hello-app
+  name: demo-app
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
-      app: hello-app
+      app: demo-app
   template:
     metadata:
       labels:
-        app: hello-app
+        app: demo-app
     spec:
       containers:
-      - name: hello-app
-        image: nginx
-        ports:
-        - containerPort: 80
+        - name: demo-app
+          image: nginx:latest
+          ports:
+            - containerPort: 80

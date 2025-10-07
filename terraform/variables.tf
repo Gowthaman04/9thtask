@@ -1,3 +1,3 @@
-variable "project_id" {default= "msd-15051998"}
-variable "region" { default = "us-central1" }
-variable "gcp_credentials" {}
+variable "project_id" {}
+variable "region" {}
+variable "credentials_file" {}
