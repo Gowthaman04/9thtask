@@ -17,7 +17,7 @@ resource "google_container_node_pool" "primary_nodes" {
   location   = var.region
 
   node_config {
-    machine_type = "e2-medium"
+    machine_type = "e2-small"
     oauth_scopes = [
       "https://www.googleapis.com/auth/cloud-platform"
     ]
