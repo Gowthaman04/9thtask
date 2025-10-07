@@ -1,0 +1,36 @@
+name: Deploy GCP Infra using Terraform
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  terraform:
+    runs-on: debian-latest  # Use the runner you configured
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.6.2
+
+      - name: Terraform Init
+        run: terraform init
+        working-directory: ./terraform
+
+      - name: Terraform Plan
+        run: terraform plan
+        working-directory: ./terraform
+        env:
+          TF_VAR_gcp_credentials: ${{ secrets.GCP_SA_KEY }}
+          TF_VAR_project_id: ${{ secrets.GCP_PROJECT_ID }}
+
+      - name: Terraform Apply
+        run: terraform apply -auto-approve
+        working-directory: ./terraform
+        env:
+          TF_VAR_gcp_credentials: ${{ secrets.GCP_SA_KEY }}
+          TF_VAR_project_id: ${{ secrets.GCP_PROJECT_ID }}
