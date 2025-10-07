@@ -1,8 +1,9 @@
 provider "google" {
-  credentials = jsondecode(var.gcp_credentials)
+  credentials = file(var.gcp_credentials_file)
   project     = var.project_id
   region      = var.region
 }
+
 
 resource "google_container_cluster" "gke_cluster" {
   name     = "demo-gke-cluster"
