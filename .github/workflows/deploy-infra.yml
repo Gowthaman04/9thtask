@@ -7,7 +7,7 @@ on:
 
 jobs:
   terraform:
-    runs-on: ubuntu-latest 
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
@@ -25,12 +25,32 @@ jobs:
         run: terraform plan
         working-directory: ./terraform
         env:
-          TF_VAR_gcp_credentials: ${{ secrets.GCP_SA_KEY }}
-          TF_VAR_project_id: ${{ secrets.GCP_PROJECT_ID }}
-
+          TF_VAR_gcp_credentials: type"service_account"
+project_id     "msd-15051998"
+private_key_id "1adedb8724120f799a1de9e24e3f15deea70b1f7"
+private_key    "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDj0yvf6V77LNDp\n2ypswTqxFgWC3B4c+OgXLR2yjxtbLMpvuOZ246I4OAxWlTu60hs4XEgNeRt9FQCB\nDTfGv0iy6wJt4ovXPZqBnX1gAhreNQAnUipVD3+l1ShqvS6KzXfBcozIU0iuZRxp\nYlo8syp1HH0XBx8ZxNvREKb7USSvw17wbort98c+mzE/sUKN8fejX/4OCAGzECKO\npm9ptTvZ5fI86KrwkzbLw0M2DOfKwPRlAs9I0R1DXV636WlQv+hX+90YIJlcgkcs\n8LXb1tJ45sQSlhIrbyFqCWway9f/Y2wjU03ZA3QH2Tliq4UVMUbogJ7s9UzbFPUu\nwqIK1JlzAgMBAAECggEADsOFiVofPJm35B++zRNskUNDEirfjLMYnz/eN88MT8lE\nSR8rWDMCNTB0pDvBhibNesaIKM9bV6y/vp0zqx6EQIv4OVTACS/FznZ9RHZ+dT3s\nB6BMe/yoIgABQYGG/Zm5FAEvXGABSsPkpnOoM1zM+I/jD1X3zvyx3gd9OrYUcYtR\nUojABWnxtUzHKyg8aUbUx0ic2oNKaEs870qHfM3dAnheScBUsGvCTLvqnLJMOx1H\nUWMh7wXhZMuuS3c3FuChJvroC5yTfuR8vjBLD83/r+/7bIm0sjI297y0Bo0Uj7g7\nrKGUcZJIglXwcGiPAvq83kY1EGXL5LKISkw/HO4ZOQKBgQD1v0H8lW1SzFxORH04\n7U3T0Pquuj3JXbx0IHHi74ltBK20uxpBlumAbzd/nZZ+dsTQkkTdyjBEuDG4+4lJ\nasmiM3quJe/NTVTmEmAKsdHln9R4fsbOxxCGz7Ag2QQOSm5olwWTH6wUSlEDNUIn\nD7SIYGIAm85/AkxtobGdVtyqnQKBgQDtVH4UF68YsE1yFbN9sRUY55cH4/dAnc1e\nWYCDHTOYUlVt5ygEpBQ9eYbM5tREtu4wj93fCk2jKDCVsW84i90TePNJrZ4Dm3Hg\nfYoF4FsnM2M6AVOeib9Hmm3NgIX1LeMG/fjp+QLcDmXd6OA1uTDNqSW1+EAK/8Hm\nUWtZn7PPTwKBgD2u7h86WqCHzzuOEWhymDBsqh+le9DJiH4VjsCJo5MLs5ZDyIli\nGeY1BFcx9Q51PV2k+Ug6cfctzL1D1efpuAbQqSCBQTnlCURepGDK1YavoaNFHx3T\n9aABDZKRJmV35VK3ZZzSPF0zcjY97gbj+Eqq9q50bVaP+yMhjPWTUfw5AoGBALbz\n0HF6xH8awcj1k7WMQkA9n370rJECVOOryVbJtxFwPu0HKiFRv0yYl2LzeqUyA7Ip\n5Zbf4XOqMrHi42NK5nTxY1Lj5RDQztuIy1K2Xm58vbxkc2qes3bmREkMD7gu1Hl6\nZV0wmZS8AKktsVGY3ldcUnbR1cTk3jvHfiLL6xgfAoGAKZ3/avmIMhxjFJ6M9Q5n\nTIVMvTJfzgGX+8/BYqqhQ90NVWxJSO5b1xHCrg/3fnJJxuoYQHbNILa6ITgiHPDi\noZm1qmWq9yO0uk8iV5FPjzLkY2IIWq+vI7rEwpqXszmzb56nu5ahg6qL80KKgdZZ\nkKe7DRq4Bj3f0Oy5VMYu64I=\n-----END PRIVATE KEY-----\n"
+client_email   "gowtham@msd-15051998.iam.gserviceaccount.com"
+client_id      "113050288912320560151"
+auth_uri       "https://accounts.google.com/o/oauth2/auth"
+token_uri      "https://oauth2.googleapis.com/token"
+auth_provider_x509_cert_url     "https://www.googleapis.com/oauth2/v1/certs"
+client_x509_cert_url   "https://www.googleapis.com/robot/v1/metadata/x509/gowtham%40msd-15051998.iam.gserviceaccount.com"
+universe_domain "googleapis.com"
+          TF_VAR_project_id: msd-15051998
       - name: Terraform Apply
         run: terraform apply -auto-approve
         working-directory: ./terraform
         env:
-          TF_VAR_gcp_credentials: ${{ secrets.GCP_SA_KEY }}
-          TF_VAR_project_id: ${{ secrets.GCP_PROJECT_ID }}
+          TF_VAR_gcp_credentials: type  "service_account"
+project_id      "msd-15051998"
+private_key_id  "1adedb8724120f799a1de9e24e3f15deea70b1f7"
+private_key     "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDj0yvf6V77LNDp\n2ypswTqxFgWC3B4c+OgXLR2yjxtbLMpvuOZ246I4OAxWlTu60hs4XEgNeRt9FQCB\nDTfGv0iy6wJt4ovXPZqBnX1gA>
+client_email    "gowtham@msd-15051998.iam.gserviceaccount.com"
+client_id       "113050288912320560151"
+auth_uri        "https://accounts.google.com/o/oauth2/auth"
+token_uri       "https://oauth2.googleapis.com/token"
+auth_provider_x509_cert_url     "https://www.googleapis.com/oauth2/v1/certs"
+client_x509_cert_url    "https://www.googleapis.com/robot/v1/metadata/x509/gowtham%40msd-15051998.iam.gserviceaccount.com"
+universe_domain "googleapis.com"
+
+          TF_VAR_project_id: msd-15051998
